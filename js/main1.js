@@ -15,19 +15,37 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // far sapere all'utente quante volte il suo numero faceva parte della lista bombe e quante volte era un numero buono per andare avanti col gioco. 
 
 
-
 var arrayBombe = [];
 var numeroCasuale = Math.floor(Math.random() * 100 + 1);
 var numeroTentativiUtente = 84;  // --> nota: se  numeroTentativiUtente + lunghezza arrayBombe === 100... l'utente ha vinto.  
 var arrayNumeriOk = [];
 
-
 while (arrayBombe.length < 16) {
-    var numeroCasuale = Math.floor(Math.random() * 100 + 1); //se lo metto dentro il ciclo non mi schianta il processore e funziona... perché?
+    var numeroCasuale = Math.floor(Math.random() * 100 + 1);
     if (!arrayBombe.includes(numeroCasuale)) {
         arrayBombe.push(numeroCasuale);
     }
 }
-// console.log(arrayBombe);
+
+console.log(arrayBombe);
+
+
+
+while (arrayNumeriOk.length < 84) {
+    var input = parseInt(prompt("inserisci un numero da 1 a 100"));
+    console.log(input);
+
+    if (arrayBombe.includes(input)) {
+        console.log("spiacente, hai perso!");
+        break;
+    } else if (!arrayNumeriOk.includes(input)) {
+        arrayNumeriOk.push(input);
+        console.log("l'arrayNumeriOk ha i numeri... " + arrayNumeriOk);
+    }
+
+    if (arrayNumeriOk.length + arrayBombe.length === 100) {
+        console.log("hai vinto!!")
+    }
+}
 
 
