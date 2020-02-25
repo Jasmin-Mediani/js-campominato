@@ -14,14 +14,15 @@ Al termine della partita il software deve comunicare il punteggio, cioè il nume
 // se il giocatore riesce a inserire 84 numeri che non siano bombe, vince. 
 // far sapere all'utente quante volte il suo numero faceva parte della lista bombe e quante volte era un numero buono per andare avanti col gioco. 
 
-
+var numeroTotale = 100; //può diventare anche di meno e aumenta la difficoltà**
+var numeroBombe = 16;
 var arrayBombe = [];
-var numeroCasuale = Math.floor(Math.random() * 100 + 1);
-var numeroTentativiUtente = 84;  // --> nota: se  numeroTentativiUtente + lunghezza arrayBombe === 100... l'utente ha vinto.  
+var numeroCasuale = Math.floor(Math.random() * numeroTotale + 1);
+var numeroTentativiUtente = numeroTotale - numeroBombe;
 var arrayNumeriOk = [];
 
-while (arrayBombe.length < 16) {
-    var numeroCasuale = Math.floor(Math.random() * 100 + 1);
+while (arrayBombe.length < numeroBombe) {
+    var numeroCasuale = Math.floor(Math.random() * numeroTotale + 1);
     if (!arrayBombe.includes(numeroCasuale)) {
         arrayBombe.push(numeroCasuale);
     }
@@ -31,8 +32,8 @@ console.log(arrayBombe);
 
 
 
-while (arrayNumeriOk.length < 84) {
-    var input = parseInt(prompt("inserisci un numero da 1 a 100"));
+while (arrayNumeriOk.length < numeroTentativiUtente /*84*/) {
+    var input = parseInt(prompt("inserisci un numero da 1 a " + numeroTotale));
     console.log(input);
 
     if (isNaN(input)) {
@@ -46,7 +47,7 @@ while (arrayNumeriOk.length < 84) {
         console.log("l'arrayNumeriOk ha i numeri... " + arrayNumeriOk);
     }
 
-    if (arrayNumeriOk.length + arrayBombe.length === 100) {
+    if (arrayNumeriOk.length + arrayBombe.length === numeroTotale) {
         console.log("hai vinto!!")
     }
 }
