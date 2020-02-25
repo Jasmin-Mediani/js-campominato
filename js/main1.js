@@ -51,4 +51,4 @@ while (arrayNumeriOk.length < 84) {
     }
 }
 
-
+console.log("hai indovinato " + arrayNumeriOk.length + " nmeri");
