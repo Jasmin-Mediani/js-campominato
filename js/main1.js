@@ -35,7 +35,10 @@ while (arrayNumeriOk.length < 84) {
     var input = parseInt(prompt("inserisci un numero da 1 a 100"));
     console.log(input);
 
-    if (arrayBombe.includes(input)) {
+    if (isNaN(input)) {
+        console.log("non era un numero; inserisci un numero");
+        // continue; --> non esegue il codice sotto; ricomincia il ciclo while. 
+    } else if (arrayBombe.includes(input)) {
         console.log("spiacente, hai perso!");
         break;
     } else if (!arrayNumeriOk.includes(input)) {
