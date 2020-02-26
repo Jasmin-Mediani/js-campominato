@@ -41,7 +41,7 @@ while (arrayNumeriOk.length < numeroTentativiUtente /*84*/) {
         // continue; --> non esegue il codice sotto; ricomincia il ciclo while. 
     } else if ((input < 1) || (input > 100)) {
         console.log("il numero non è valido. Per favore, inserisci un numero compreso fra 1 e 100");
-        alert("il numero inserito deve essere compreso fra 0 e 100");
+        alert("il numero inserito deve essere compreso fra 1 e 100");
     } else if (arrayBombe.includes(input)) {
         console.log("spiacente, hai perso!");
         break;
