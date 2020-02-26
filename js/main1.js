@@ -30,9 +30,9 @@ while (arrayBombe.length < numeroBombe) {
 
 //console.log(arrayBombe);
 
+var giocoInCorso = true;
 
-
-while (arrayNumeriOk.length < numeroTentativiUtente /*84*/) {
+while (arrayNumeriOk.length < numeroTentativiUtente && giocoInCorso/*84*/) {
     var input = parseInt(prompt("inserisci un numero da 1 a " + numeroTotale));
     console.log("hai inserito il numero: " + input);
 
@@ -44,17 +44,18 @@ while (arrayNumeriOk.length < numeroTentativiUtente /*84*/) {
         alert("il numero inserito deve essere compreso fra 1 e 100");
     } else if (arrayBombe.includes(input)) {
         console.log("spiacente, hai perso!");
-        break;
+        giocoInCorso = false;
     } else if (!arrayNumeriOk.includes(input)) {
         arrayNumeriOk.push(input);
     }
 
     if (arrayNumeriOk.length + arrayBombe.length === numeroTotale) {
         console.log("hai vinto!!")
+        giocoInCorso = false;
     }
 }
 
-console.log("hai indovinato " + arrayNumeriOk.length + " nmeri");
+console.log("hai indovinato " + arrayNumeriOk.length + " numeri");
 
 
 
