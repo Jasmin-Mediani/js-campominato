@@ -28,7 +28,7 @@ while (arrayBombe.length < numeroBombe) {
     }
 }
 
-console.log(arrayBombe);
+//console.log(arrayBombe);
 
 
 
