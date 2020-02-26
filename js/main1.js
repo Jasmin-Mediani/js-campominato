@@ -32,14 +32,14 @@ while (arrayBombe.length < numeroBombe) {
 
 var giocoInCorso = true;
 
-while (arrayNumeriOk.length < numeroTentativiUtente && giocoInCorso/*84*/) {
+while (/*arrayNumeriOk.length < numeroTentativiUtente &&*/ giocoInCorso) {
     var input = parseInt(prompt("inserisci un numero da 1 a " + numeroTotale));
     console.log("hai inserito il numero: " + input);
 
     if (isNaN(input)) {
         console.log("non era un numero; inserisci un numero");
         // continue; --> non esegue il codice sotto; ricomincia il ciclo while. 
-    } else if ((input < 1) || (input > 100)) {
+    } else if ((input < 1) || (input > numeroTotale)) {
         console.log("il numero non è valido. Per favore, inserisci un numero compreso fra 1 e 100");
         alert("il numero inserito deve essere compreso fra 1 e 100");
     } else if (arrayBombe.includes(input)) {
